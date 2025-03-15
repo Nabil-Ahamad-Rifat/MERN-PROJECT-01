@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    <div class="main W-full min-h-screen bg-zinc-900  text-white">
+        <div class="mx-10 p-9">
+            <a class="text-blue-800 text-3xl mb-90 capitalize tracking-tighter"href="/">go back home </a>
+
+            <h1 class="text-4xl tracking-tighter pt-15"> Tittle: <%=filename%></h1>
+            <p class="text-2xl mt-4 font-light"> Body : <%=filedata%> </p>
+    
+            <form action="/delete/<%= filename %>" method="POST" style="margin-top: 20px;">
+                <button class="bg-red-600 text-white px-4 py-2 rounded" type="submit">Mark as done </button>
+            </form>
+
+        </div>
+      
+
+        
+        
+
+
+    </div>
+    
+</body>
+</html>

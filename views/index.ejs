@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    <div class="main W-full min-h-screen bg-zinc-900">
+        <div class="from color-white p-5 text-white">
+            <form action="/create"method="POST">
+                <input type="text" class="input block px-5 py-2 bg-zinc-500 w-full rounded-[3px] mt-0 ml-3"name ="tittle" placeholder="tittle write here ">
+                <textarea class="input block px-5 py-2 bg-zinc-500 resize-none w-full rounded-[3px] m-3" name="details"placeholder="write hereyour detils"></textarea>
+                <input type="submit"class="input block px-5 py-2 bg-blue-600  rounded-[10px] mt-0 ml-3" value="create task">
+            
+            </form>
+           </div>
+
+
+        <div class="tasks flex justify-center gap-3 my-6">
+            <%if(file.length > 0){%>
+                <%file.forEach((value)=>{%>
+                    <div class="task w-72 px-3 py-4 rounded-md bg-zinc-800">
+                        <h1 class=" text-white text-3xl tracking-tighter"> <%=value%></h1>
+                        <a class="text-blue-800 inline-block mt-4" href="/file/<%=value %>">Read more...</a>
+                        <form action="/delete/<%= value %>" method="POST" style="display:inline inline-block;">
+                            <button class="bg-red-600 text-white mt-10 px-3 py-1 rounded" type="submit">Delete</button>
+                        </form>
+                    </div>
+                    
+                <%})%>
+            <%}else{%>
+                <h1 class="text-white text-3xl uppercase ">there is no task yet </h1>
+           <% }%>
+
+           
+
+
+            
+        </div>
+
+
+    </div>
+    
+</body>
+</html>
