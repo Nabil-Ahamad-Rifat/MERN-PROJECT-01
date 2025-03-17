@@ -24,7 +24,10 @@
                 <%file.forEach((value)=>{%>
                     <div class="task w-72 px-3 py-4 rounded-md bg-zinc-800">
                         <h1 class=" text-white text-3xl tracking-tighter"> <%=value%></h1>
-                        <a class="text-blue-800 inline-block mt-4" href="/file/<%=value %>">Read more...</a>
+                        <div class=" flex justify-between items-center w-full ">
+                            <a class="text-blue-800 mt-4 " href="/file/<%=value %>">Read more...</a>
+                            <a href="/edit/<%= value%>" class="capitalize  mt-4 p-1 bg-sky-800 rounded border border-black-800 ">Edit...</a>
+                        </div>
                         <form action="/delete/<%= value %>" method="POST" style="display:inline inline-block;">
                             <button class="bg-red-600 text-white mt-10 px-3 py-1 rounded" type="submit">Delete</button>
                         </form>

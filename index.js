@@ -40,13 +40,33 @@ app.get("/file/:filename",(req,res)=>{
 })
 
 
+
+
+app.get("/edit/:filename",(req,res)=>{
+    res.render("edit",{filename:req.params.filename});
+})
+
+
+
+app.post("/edit",(req,res)=>{
+    console.log(req.body)
+    fs.rename(`./file/${req.body.prevoiusname}`,`./file/${req.body.newname}`,(err)=>{
+        if(err){
+            console.log(err);
+            
+        }
+        res.redirect("/");
+    });
+});
+
+
 app.post("/delete/:filename", (req, res) => {
     fs.unlink(`./file/${req.params.filename}`, (err) => {
         if (err) {
             console.log(err);
             return res.status(500).send("Error deleting file");
         }
-        res.redirect("/");
+        // res.redirect("/");
     });
 });
 
